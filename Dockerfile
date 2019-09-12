@@ -16,9 +16,9 @@ RUN apt-get -o Acquire::Check-Valid-Until=false update && DEBIAN_FRONTEND=nonint
 
 ENV HADOOP_VERSION 2.6.4
 ENV HADOOP_URL http://archive.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
-RUN wget "$HADOOP_URL" -P /tmp/hadoop.tar.gz \
-    && tar -xvf /tmp/hadoop.tar.gz -C /opt/ \
-    && rm /tmp/hadoop.tar.gz* \
+RUN wget "$HADOOP_URL" -P /tmp/ \
+    && tar -xvf /tmp/hadoop-2.6.4.tar.gz -C /opt/ \
+    && rm /tmp/hadoop-2.6.4.tar.gz \
     && ln -s /opt/hadoop-$HADOOP_VERSION/etc/hadoop /etc/hadoop \
     && cp /etc/hadoop/mapred-site.xml.template /etc/hadoop/mapred-site.xml \
     && mkdir /opt/hadoop-$HADOOP_VERSION/logs \
